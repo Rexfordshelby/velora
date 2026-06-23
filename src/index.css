@@ -1,0 +1,446 @@
+@import "tailwindcss";
+
+:root {
+  color: #f2eee8;
+  background: #0d0d0e;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #0d0d0e;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(245, 166, 35, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 12%, rgba(58, 133, 212, 0.10), transparent 26%),
+    #080809;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #dbe4dd;
+  font-family: inherit;
+}
+
+.leaflet-control-attribution {
+  border-radius: 6px 0 0 0;
+  font-size: 10px;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.14) !important;
+}
+
+.leaflet-control-zoom a {
+  color: #111816 !important;
+  border: none !important;
+}
+
+.velora-pin {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #0f766e;
+  box-shadow: 0 14px 28px rgba(17, 24, 22, 0.24);
+}
+
+.velora-pin::after {
+  width: 8px;
+  height: 8px;
+  content: "";
+  border-radius: 999px;
+  background: #fff;
+}
+
+.velora-pin.drop {
+  background: #f59e0b;
+}
+
+.velora-pin.driver {
+  background: #111816;
+}
+
+.app-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 24, 22, 0.24) transparent;
+}
+
+.app-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.app-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(17, 24, 22, 0.24);
+}
+
+.ridego-auth,
+.ridego-skin {
+  --rg-amber: #f5a623;
+  --rg-amber-dark: #d4891e;
+  --rg-bg: #0d0d0e;
+  --rg-surface: #141416;
+  --rg-card: #1e1e22;
+  --rg-card2: #28282e;
+  --rg-border: rgba(255, 255, 255, 0.10);
+  --rg-border2: rgba(255, 255, 255, 0.16);
+  --rg-text: #f2eee8;
+  --rg-muted: #918f8a;
+  --rg-dim: #5f5d58;
+  --rg-green: #27ae60;
+  --rg-blue: #3a85d4;
+  --rg-red: #e74c3c;
+  color: var(--rg-text);
+  background:
+    radial-gradient(circle at 10% 6%, rgba(245, 166, 35, 0.13), transparent 30%),
+    linear-gradient(180deg, #101011 0%, var(--rg-bg) 46%, #080809 100%);
+}
+
+.ridego-skin::before {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+.ridego-skin [class*="bg-[#f6f4ee]"],
+.ridego-skin [class*="bg-[#fbfaf6]"],
+.ridego-skin [class*="bg-[#dfe7df]"] {
+  background-color: var(--rg-bg) !important;
+}
+
+.ridego-skin [class*="bg-white"],
+.ridego-skin [class*="bg-[#f3f1ea]"],
+.ridego-skin [class*="bg-[#f0f7f5]"],
+.ridego-skin [class*="bg-[#eef8f5]"],
+.ridego-skin [class*="bg-[#ece8dc]"] {
+  background-color: var(--rg-card) !important;
+}
+
+.ridego-skin [class*="bg-[#111816]"],
+.ridego-skin [class*="bg-[#0b1411]"] {
+  background-color: var(--rg-surface) !important;
+}
+
+.ridego-skin button[class*="bg-[#111816]"],
+.ridego-skin button[class*="bg-[#f6c94c]"],
+.ridego-auth button[type="submit"],
+.ridego-auth button[class*="bg-[#111816]"] {
+  background: var(--rg-amber) !important;
+  color: #1c0f00 !important;
+  box-shadow: 0 18px 34px rgba(245, 166, 35, 0.20) !important;
+}
+
+.ridego-skin button[class*="bg-[#111816]"]:hover,
+.ridego-auth button[type="submit"]:hover {
+  background: var(--rg-amber-dark) !important;
+}
+
+.ridego-skin [class*="text-[#111816]"],
+.ridego-skin [class*="text-white"],
+.ridego-skin h1,
+.ridego-skin h2,
+.ridego-skin h3,
+.ridego-skin p,
+.ridego-skin td,
+.ridego-skin th,
+.ridego-skin span {
+  color: var(--rg-text);
+}
+
+.ridego-skin [class*="text-black/"],
+.ridego-skin [class*="text-white/55"],
+.ridego-skin [class*="text-white/60"],
+.ridego-skin [class*="text-white/68"],
+.ridego-skin [class*="text-white/70"] {
+  color: var(--rg-muted) !important;
+}
+
+.ridego-skin [class*="text-[#0f766e]"],
+.ridego-skin [class*="text-[#f6c94c]"],
+.ridego-skin [class*="text-[#f59e0b]"] {
+  color: var(--rg-amber) !important;
+}
+
+.ridego-skin [class*="text-[#9f1239]"] {
+  color: var(--rg-red) !important;
+}
+
+.ridego-skin [class*="text-[#b45309]"],
+.ridego-skin [class*="text-[#8a4b00]"] {
+  color: var(--rg-amber-dark) !important;
+}
+
+.ridego-skin [class*="border-black/"],
+.ridego-skin [class*="border-white/"],
+.ridego-skin [class*="border-[#0f766e]"],
+.ridego-skin [class*="border-[#f6c94c]"],
+.ridego-skin [class*="border-[#f59e0b]"] {
+  border-color: var(--rg-border) !important;
+}
+
+.ridego-skin button,
+.ridego-auth button,
+.ridego-skin input,
+.ridego-auth input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ridego-skin input,
+.ridego-auth input {
+  background: var(--rg-card) !important;
+  border-color: var(--rg-border2) !important;
+  color: var(--rg-text) !important;
+}
+
+.ridego-auth form {
+  background: rgba(20, 20, 22, 0.94) !important;
+  color: var(--rg-text) !important;
+  border-color: var(--rg-border2) !important;
+  border-radius: 24px !important;
+}
+
+.ridego-auth form [class*="bg-[#ece8dc]"],
+.ridego-auth form [class*="bg-[#f3f1ea]"],
+.ridego-auth form [class*="bg-[#fbfaf6]"],
+.ridego-auth form [class*="bg-white"] {
+  background-color: var(--rg-card) !important;
+  color: var(--rg-text) !important;
+}
+
+.ridego-auth form [class*="text-black/"],
+.ridego-auth form p {
+  color: var(--rg-muted) !important;
+}
+
+.ridego-auth form [class*="text-[#0f766e]"],
+.ridego-auth form [class*="text-[#f6c94c]"] {
+  color: var(--rg-amber) !important;
+}
+
+.ridego-skin .rounded-lg,
+.ridego-auth .rounded-lg {
+  border-radius: 16px !important;
+}
+
+.ridego-skin .rounded-md,
+.ridego-auth .rounded-md {
+  border-radius: 10px !important;
+}
+
+.ridego-skin .shadow-sm,
+.ridego-skin .shadow-xl,
+.ridego-skin .shadow-2xl,
+.ridego-auth .shadow-sm,
+.ridego-auth .shadow-xl,
+.ridego-auth .shadow-2xl {
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.30) !important;
+}
+
+.ridego-skin header {
+  background: rgba(20, 20, 22, 0.88) !important;
+  border-color: var(--rg-border) !important;
+  color: var(--rg-text) !important;
+  backdrop-filter: blur(20px);
+}
+
+.ridego-skin aside {
+  background: var(--rg-surface) !important;
+  border-color: var(--rg-border) !important;
+}
+
+.ridego-skin nav.fixed {
+  height: 82px;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  border-radius: 22px 22px 0 0 !important;
+  background: rgba(20, 20, 22, 0.96) !important;
+  border-color: var(--rg-border) !important;
+  padding: 10px 8px 18px !important;
+}
+
+.ridego-skin nav.fixed button {
+  border-radius: 12px !important;
+  min-width: 0;
+}
+
+.ridego-skin nav.fixed button[class*="bg-[#f6c94c]"] {
+  background: rgba(245, 166, 35, 0.14) !important;
+  color: var(--rg-amber) !important;
+  box-shadow: none !important;
+}
+
+.ridego-skin section[class*="grid-rows-[auto_minmax"] > div:first-child {
+  background: var(--rg-surface) !important;
+}
+
+.ridego-skin section[class*="grid-rows-[auto_minmax"] > div:first-child,
+.ridego-skin section[class*="grid-rows-[auto_minmax"] > aside {
+  border-color: var(--rg-border) !important;
+}
+
+.ridego-skin section[class*="grid-rows-[auto_minmax"] > div:nth-child(2) {
+  background: #181922 !important;
+}
+
+.ridego-skin section[class*="grid-rows-[auto_minmax"] > div:first-child > div:first-child {
+  background: var(--rg-card) !important;
+  border: 1px solid var(--rg-border) !important;
+}
+
+.ridego-skin .leaflet-container {
+  background: #181922 !important;
+}
+
+.ridego-skin .leaflet-tile {
+  filter: invert(0.92) hue-rotate(180deg) saturate(0.75) brightness(0.72) contrast(1.05);
+}
+
+.ridego-skin .leaflet-control-attribution {
+  background: rgba(20, 20, 22, 0.82) !important;
+  color: var(--rg-muted) !important;
+}
+
+.ridego-skin .velora-pin {
+  background: var(--rg-green);
+  border-color: #0d0d0e;
+  box-shadow: 0 0 0 8px rgba(39, 174, 96, 0.14), 0 14px 28px rgba(0, 0, 0, 0.34);
+}
+
+.ridego-skin .velora-pin.drop {
+  background: var(--rg-amber);
+  box-shadow: 0 0 0 8px rgba(245, 166, 35, 0.16), 0 14px 28px rgba(0, 0, 0, 0.34);
+}
+
+.ridego-skin .velora-pin.driver {
+  background: var(--rg-card2);
+  box-shadow: 0 0 0 8px rgba(245, 166, 35, 0.10), 0 14px 28px rgba(0, 0, 0, 0.34);
+}
+
+.ridego-skin .app-scrollbar {
+  scrollbar-color: rgba(245, 166, 35, 0.35) transparent;
+}
+
+.ridego-skin .app-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(245, 166, 35, 0.35);
+}
+
+.ridego-skin table {
+  color: var(--rg-text);
+}
+
+.ridego-skin tr {
+  border-color: var(--rg-border) !important;
+}
+
+.ridego-skin [class*="bg-[#fff7db]"] {
+  background: rgba(245, 166, 35, 0.12) !important;
+}
+
+.ridego-skin [class*="bg-[#ffe8e8]"] {
+  background: rgba(231, 76, 60, 0.12) !important;
+}
+
+@media (max-width: 1023px) {
+  .ridego-skin {
+    padding-bottom: 82px !important;
+  }
+
+  .ridego-skin header {
+    height: 58px !important;
+  }
+
+  .ridego-skin section[class*="grid-rows-[auto_minmax"] {
+    grid-template-rows: minmax(16rem, 37vh) auto !important;
+  }
+
+  .ridego-skin section[class*="grid-rows-[auto_minmax"] > div:first-child {
+    order: 2;
+    margin-top: -24px;
+    border-radius: 28px 28px 0 0 !important;
+    z-index: 650;
+    max-height: none;
+  }
+
+  .ridego-skin section[class*="grid-rows-[auto_minmax"] > div:first-child::before {
+    display: block;
+    width: 42px;
+    height: 4px;
+    margin: 0 auto 16px;
+    content: "";
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  .ridego-skin section[class*="grid-rows-[auto_minmax"] > div:nth-child(2) {
+    order: 1;
+    min-height: 37vh !important;
+  }
+
+  .ridego-skin [class*="max-h-[42vh]"] {
+    max-height: none !important;
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding-bottom: 6px;
+  }
+
+  .ridego-skin [class*="max-h-[42vh]"] > button {
+    width: 112px;
+    min-width: 112px;
+    min-height: 128px;
+    grid-template-columns: 1fr !important;
+    align-content: start;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .ridego-skin [class*="max-h-[42vh]"] > button > span:nth-child(2) {
+    width: 100%;
+  }
+
+  .ridego-skin [class*="max-h-[42vh]"] > button > span:last-child {
+    text-align: center;
+  }
+}
